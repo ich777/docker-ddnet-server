@@ -20,6 +20,7 @@ if [ -z "$CUR_V" ]; then
     echo "---Successfully downloaded DDNet v${LAT_V}---"
   else
     echo "---Something went wrong, can't download DDNet v${LAT_V}, putting server into sleep mode!---"
+    ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz
     sleep infinity
   fi
   mkdir -p ${SERVER_DIR}/DDNet
@@ -34,6 +35,7 @@ elif [ "$LAT_V" != "$CUR_V" ]; then
     echo "---Successfully downloaded DDNet v${LAT_V}---"
   else
     echo "---Something went wrong, can't download DDNet v${LAT_V}, putting server into sleep mode!---"
+    ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz
     sleep infinity
   fi
   mkdir -p ${SERVER_DIR}/DDNet
