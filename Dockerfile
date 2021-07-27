@@ -8,7 +8,7 @@ RUN apt-get update && \
 
 ENV DATA_DIR="/serverdata"
 ENV SERVER_DIR="${DATA_DIR}/serverfiles"
-ENV GAME_CONFIG="template"
+ENV GAME_CONFIG="autoexec.cfg"
 ENV GAME_PORT=8303
 ENV UMASK=000
 ENV UID=99
