@@ -16,7 +16,12 @@ echo "---DDNet version check...---"
 if [ -z "$CUR_V" ]; then
   echo "---DDNet not found, downloading!---"
   cd ${SERVER_DIR}
-  wget -q -nc --show-progress --progress=bar:force:noscroll -O ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz "https://ddnet.tw/downloads/DDNet-${LAT_V}-linux_x86_64.tar.xz"
+  if wget -q -nc --show-progress --progress=bar:force:noscroll -O ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz "https://ddnet.tw/downloads/DDNet-${LAT_V}-linux_x86_64.tar.xz" ; then
+    echo "---Successfully downloaded DDNet v${LAT_V}---"
+  else
+    echo "---Something went wrong, can't download DDNet v${LAT_V}, putting server into sleep mode!---"
+    sleep infinity
+  fi
   mkdir -p ${SERVER_DIR}/DDNet
   tar --directory ${SERVER_DIR}/DDNet --strip-components 1 -xf ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz
   rm -rf ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz ${SERVER_DIR}/DDNet/data/autoexec_server.cfg
@@ -25,7 +30,12 @@ elif [ "$LAT_V" != "$CUR_V" ]; then
   echo "---Newer version found, installing!---"
   rm -rf ${SERVER_DIR}/installedv-* ${SERVER_DIR}/DDNet
   cd ${SERVER_DIR}
-  wget -q -nc --show-progress --progress=bar:force:noscroll -O ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz "https://ddnet.tw/downloads/DDNet-${LAT_V}-linux_x86_64.tar.xz"
+  if wget -q -nc --show-progress --progress=bar:force:noscroll -O ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz "https://ddnet.tw/downloads/DDNet-${LAT_V}-linux_x86_64.tar.xz" ; then
+    echo "---Successfully downloaded DDNet v${LAT_V}---"
+  else
+    echo "---Something went wrong, can't download DDNet v${LAT_V}, putting server into sleep mode!---"
+    sleep infinity
+  fi
   mkdir -p ${SERVER_DIR}/DDNet
   tar --directory ${SERVER_DIR}/DDNet --strip-components 1 -xf ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz
   rm -rf ${SERVER_DIR}/DDNet-${LAT_V}.tar.xz
