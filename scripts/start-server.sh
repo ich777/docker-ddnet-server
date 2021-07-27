@@ -40,7 +40,7 @@ fi
 echo "---Preparing Server---"
 if [ ! -f ${SERVER_DIR}/autoexec.cfg ]; then
   cd ${SERVER_DIR}
-  if wget -q -nc --show-progress --progress=bar:force:noscroll -O ${SERVER_DIR}/autoexec.cfg "https://raw.githubusercontent.com/ich777/docker-ddnet-server/master/configs/autoexec.cfg" ; then
+  if wget -q -nc --show-progress --progress=bar:force:noscroll -O ${SERVER_DIR}/autoexec.cfg "https://raw.githubusercontent.com/ich777/docker-ddnet-server/master/config/autoexec.cfg" ; then
     echo "---Successfully downloaded 'autoexec.cfg'---"
   else
     echo "---Can't download 'autoexec.cfg', continuing...---"
